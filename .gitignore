@@ -6,3 +6,4 @@ infra/.terraform.lock.hcl
 infra/.terraform.lock.hcl
 README.MD
 infra/README.MD
+infra/terraform.tfstate

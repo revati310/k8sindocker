@@ -15,13 +15,14 @@ spec:
         value: mysql.database.svc.cluster.local
       - name: DBUSER
         value: root
-      - name: DATABASE
-        value: employees
       - name: DBPWD
         value: Password1234
+      - name: DATABASE
+        value: employees
       - name: DBPORT
-        value: 3306
+        value: "3306"
     ports:
       - containerPort: 8080
+        protocol: TCP
   imagePullSecrets:
     - name: secret-registry

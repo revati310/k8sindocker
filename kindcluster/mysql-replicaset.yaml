@@ -19,6 +19,8 @@ spec:
         env:
           - name: MYSQL_ROOT_PASSWORD
             value: Password1234
+          - name: DATABASE
+            value: employees
         ports:
         - containerPort: 3306
       imagePullSecrets:
