@@ -1,0 +1,27 @@
+# web-app-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp
+  namespace: application
+  labels:
+    app: employees
+spec:
+  containers:
+  - name: app-container
+    image: 032566931471.dkr.ecr.us-east-1.amazonaws.com/app-repo:v0.1
+    env:
+      - name: DBHOST
+        value: mysql.database.svc.cluster.local
+      - name: DBUSER
+        value: root
+      - name: DATABASE
+        value: employees
+      - name: DBPWD
+        value: Password1234
+      - name: DBPORT
+        value: 3306
+    ports:
+      - containerPort: 8080
+  imagePullSecrets:
+    - name: secret-registry
