@@ -1,8 +1,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: mysql-replicaset
-  namespace: database
+  name: mysql
 spec:
   replicas: 1
   selector:
@@ -14,7 +13,7 @@ spec:
         app: mysql
     spec:
       containers:
-      - name: mysql-container
+      - name: db-container
         image: 032566931471.dkr.ecr.us-east-1.amazonaws.com/db-repo:v0.1
         env:
           - name: MYSQL_ROOT_PASSWORD

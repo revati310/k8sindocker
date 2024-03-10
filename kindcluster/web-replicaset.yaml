@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: webapp-replicaset
+  name: employees
   namespace: application
   labels:
     app: employees
@@ -30,6 +30,8 @@ spec:
             value: Password1234
           - name: DBPORT
             value: "3306"
+          - name: APP_COLOR
+            value: pink
         ports:
           - containerPort: 8080
       imagePullSecrets:

@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: employees
+  name: employeesgreen
   labels:
-    app: employees
+    app: employeesgreen
 spec:
   ports:
   - port: 8080
   selector:
-    app: employees
+    app: employeesgreen

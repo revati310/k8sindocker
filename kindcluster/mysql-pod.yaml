@@ -1,27 +1,7 @@
-# # mysql-pod.yaml
-# apiVersion: v1
-# kind: Pod
-# metadata:
-#   name: mysql
-#   namespace: database
-#   labels:
-#     app: mysql
-# spec:
-#   containers:
-#   - name: db-container
-#     image: 032566931471.dkr.ecr.us-east-1.amazonaws.com/db-repo:v0.1
-#     env:
-#     - name: MYSQL_ROOT_PASSWORD
-#       value: Password1234
-#     ports:
-#     - containerPort: 3306
-#   imagePullSecrets:
-#   - name: secret-registry
 apiVersion: v1
 kind: Pod
 metadata:
   name: mysql
-  namespace: database
   labels:
     app: mysql
 spec:
@@ -29,11 +9,12 @@ spec:
     - name: db-container
       image: 032566931471.dkr.ecr.us-east-1.amazonaws.com/db-repo:v0.1
       env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: Password1234
-        - name: DATABASE
-          value: employees
+          - name: MYSQL_ROOT_PASSWORD
+            value: password
+          - name: MYSQL_DATABASE
+            value: employees
       ports:
         - containerPort: 3306
+          protocol: TCP 
   imagePullSecrets:
     - name: secret-registry

@@ -3,19 +3,10 @@ kind: Service
 metadata:
   name: mysql
   labels:
-    app.kubernetes.io/name: mysql
-    app.kubernetes.io/component: database
     app: mysql
-    namespace: database
 spec:
   ports:
-  - protocol: TCP
-    port: 3306
-    targetPort: 3306
+    - port: 3306
+      targetPort: 3306
   selector:
-    app.kubernetes.io/name: mysql
-    app.kubernetes.io/component: database
     app: mysql
-    namespace: database
-  imagePullSecrets:
-    - name: secret-registry

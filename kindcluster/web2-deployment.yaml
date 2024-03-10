@@ -2,38 +2,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: employees
-  namespace: application
+  name: employeesgreen
   labels:
-    app: employees
+    app: employeesgreen
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: employees
+      app: employeesgreen
   template:
     metadata:
-      name: employees
+      name: employeesgreen
       namespace: application
       labels:
-        app: employees
+        app: employeesgreen
     spec:
       containers:
-      - name: app-container
-        image: 032566931471.dkr.ecr.us-east-1.amazonaws.com/app-repo:v0.2
+      - name: appgreen-container
+        image: 032566931471.dkr.ecr.us-east-1.amazonaws.com/app-repo:v0.1
         env:
           - name: DBHOST
             value: mysql.database.svc.cluster.local
           - name: DBUSER
             value: root
           - name: DATABASE
-            value: employees
+            value: employeesgreen
           - name: DBPWD
             value: Password1234
           - name: DBPORT
             value: "3306"
           - name: APP_COLOR
-            value: pink
+            value: green
         ports:
           - containerPort: 8080
       imagePull  imagePullSecrets:
