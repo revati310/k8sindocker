@@ -17,7 +17,7 @@ spec:
         image: 032566931471.dkr.ecr.us-east-1.amazonaws.com/db-repo:v0.1
         env:
           - name: MYSQL_ROOT_PASSWORD
-            value: Password1234
+            value: password1234
           - name: DATABASE
             value: employees
         ports:

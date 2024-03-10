@@ -3,7 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: employees
-  namespace: application
   labels:
     app: employees
 spec:
@@ -14,13 +13,12 @@ spec:
   template:
     metadata:
       name: employees
-      namespace: application
       labels:
         app: employees
     spec:
       containers:
       - name: app-container
-        image: 032566931471.dkr.ecr.us-east-1.amazonaws.com/app-repo:v0.2
+        image: 032566931471.dkr.ecr.us-east-1.amazonaws.com/app-repo:v0.1
         env:
           - name: DBHOST
             value: mysql.database.svc.cluster.local
@@ -29,12 +27,12 @@ spec:
           - name: DATABASE
             value: employees
           - name: DBPWD
-            value: Password1234
+            value: password1234
           - name: DBPORT
             value: "3306"
           - name: APP_COLOR
             value: pink
         ports:
           - containerPort: 8080
-      imagePull  imagePullSecrets:
+      imagePullSecrets:
         - name: secret-registry
