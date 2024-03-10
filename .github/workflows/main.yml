@@ -32,7 +32,7 @@ jobs:
         ECR_REPOSITORY: db-repo
         IMAGE_TAG: v0.1
       run: |
-        cd app
+        cd dockerimage
         ls -ltra
         # Docker build command
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile_mysql .
@@ -50,7 +50,7 @@ jobs:
         ECR_REPOSITORY: app-repo
         IMAGE_TAG: v0.1
       run: |
-        cd app
+        cd dockerimage
         ls -ltra
         # Docker build command
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
